@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arabic Journey — Learn Arabic from Alif to Fluency</title>
+  <meta name="description" content="A friendly, interactive course: master the Arabic alphabet, vowels, numbers, vocabulary and grammar — from your first letter to real sentences.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230e7c66'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23fff' font-family='serif'%3E%D8%A8%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand" data-route="home" role="button" tabindex="0">
+    <div class="logo arabic">ب</div>
+    <div class="brand-text">
+      <strong>Arabic Journey</strong>
+      <span>from alif to fluency</span>
+    </div>
+  </div>
+  <nav id="main-nav" aria-label="Main navigation">
+    <button data-route="home">Home</button>
+    <button data-route="alphabet">Alphabet</button>
+    <button data-route="vowels">Vowels</button>
+    <button data-route="numbers">Numbers</button>
+    <button data-route="words">Words</button>
+    <button data-route="grammar">Grammar</button>
+    <button data-route="phrases">Phrases</button>
+    <button data-route="quiz">Quiz</button>
+  </nav>
+  <button id="theme-btn" aria-label="Toggle dark mode"></button>
+</header>
+
+<main>
+
+  <!-- ============ HOME ============ -->
+  <section class="view" id="view-home">
+    <div class="hero">
+      <span class="float-ch arabic" style="--d:0s">ق</span>
+      <span class="float-ch arabic" style="--d:1.2s">ح</span>
+      <span class="float-ch arabic" style="--d:2.1s">ش</span>
+      <span class="float-ch arabic" style="--d:.6s">ع</span>
+      <span class="float-ch arabic" style="--d:1.8s">س</span>
+      <span class="float-ch arabic" style="--d:.3s">م</span>
+      <p class="hero-hello" id="hero-greeting">Ahlan wa sahlan!</p>
+      <h2>Learn Arabic,<br><em>one friendly step at a time.</em></h2>
+      <p class="hero-sub">Master all 28 letters, the vowel system, numbers, 100+ everyday words,
+      and the grammar that turns them into sentences — with audio, flashcards and quizzes.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-route="alphabet">Start with the Alphabet</button>
+        <button class="btn btn-ghost" data-route="quiz">Test yourself</button>
+      </div>
+    </div>
+
+    <div class="progress-board">
+      <h3>Your journey so far</h3>
+      <div class="overall-row">
+        <div class="bar big"><div class="bar-fill" id="overall-bar"></div></div>
+        <span class="overall-pct" id="overall-pct">0%</span>
+      </div>
+      <p class="overall-note">Course completion (letters + vocabulary)</p>
+      <div class="stat-cards">
+        <a class="stat-card" data-route="alphabet" href="#alphabet">
+          <span class="stat-num" id="stat-letters">0/28</span>
+          <span class="stat-label">Letters learned</span>
+          <div class="bar"><div class="bar-fill accent" id="stat-letters-bar"></div></div>
+        </a>
+        <a class="stat-card" data-route="words" href="#words">
+          <span class="stat-num" id="stat-words">0/0</span>
+          <span class="stat-label">Words learned</span>
+          <div class="bar"><div class="bar-fill gold" id="stat-words-bar"></div></div>
+        </a>
+        <a class="stat-card" data-route="quiz" href="#quiz">
+          <span class="stat-num" id="stat-quiz">—</span>
+          <span class="stat-label">Best quiz score</span>
+          <div class="bar"><div class="bar-fill rose" id="stat-quiz-bar"></div></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="tips">
+      <div class="tip-card">
+        <span class="tip-kicker">Tip of the moment</span>
+        <p id="tip-text"></p>
+      </div>
+    </div>
+
+    <div class="path-map" aria-label="Learning path">
+      <h3>The path to fluency</h3>
+      <ol class="path-steps">
+        <li><b>Alphabet</b><span>All 28 letters & their forms</span></li>
+        <li><b>Vowels</b><span>Harakat, sukun, shadda, tanween</span></li>
+        <li><b>Numbers</b><span>Counting in Arabic digits</span></li>
+        <li><b>Vocabulary</b><span>12 themed flashcard decks</span></li>
+        <li><b>Grammar</b><span>15 lessons, zero jargon</span></li>
+        <li><b>Phrases</b><span>Real conversations out loud</span></li>
+        <li><b>Quiz</b><span>Cement it all in memory</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ ALPHABET ============ -->
+  <section class="view" id="view-alphabet">
+    <header class="view-head">
+      <h2>The 28 Letters <span class="arabic head-ar">(الحُروف)</span></h2>
+      <p>Tap any letter to see its four shapes, hear its sound, and learn a word. Star what you know.</p>
+    </header>
+    <div class="alpha-tools">
+      <input type="search" id="alpha-search" placeholder="Search letter or sound… (e.g. ba, kh)" autocomplete="off">
+      <div class="chips" id="alpha-filters">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="todo">Not learned</button>
+        <button class="chip" data-filter="learned">Learned</button>
+        <button class="chip" data-filter="joiners">Connect both ways</button>
+        <button class="chip" data-filter="non">One-sided</button>
+      </div>
+      <span class="muted" id="alpha-count"></span>
+    </div>
+    <div class="alpha-grid" id="alpha-grid"></div>
+  </section>
+
+  <!-- ============ VOWELS ============ -->
+  <section class="view" id="view-vowels">
+    <header class="view-head">
+      <h2>Short Vowels & Marks <span class="arabic head-ar">(الحَرَكات)</span></h2>
+      <p>Tiny marks, huge difference. They tell you which vowel follows each letter.</p>
+    </header>
+    <div class="mark-grid" id="marks-grid"></div>
+
+    <h3 class="sub-head">Long vowels</h3>
+    <div class="mark-grid small" id="long-grid"></div>
+
+    <h3 class="sub-head">Try it live — one letter, every vowel</h3>
+    <div class="explorer card">
+      <label for="vowel-base">Pick a base letter:</label>
+      <select id="vowel-base" dir="ltr"></select>
+      <div class="combo-grid" id="vowel-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ NUMBERS ============ -->
+  <section class="view" id="view-numbers">
+    <header class="view-head">
+      <h2>Numbers <span class="arabic head-ar">(الأَرقام)</span></h2>
+      <p>Arabic has its own digits, read left-to-right just like ours.</p>
+    </header>
+    <div class="num-grid" id="numbers-grid"></div>
+  </section>
+
+  <!-- ============ WORDS ============ -->
+  <section class="view" id="view-wordsec">
+    <header class="view-head">
+      <h2>Vocabulary Decks <span class="arabic head-ar">(المُفْرَدات)</span></h2>
+      <p>Flip the cards, listen, star what sticks. Little and often beats cramming.</p>
+    </header>
+    <div class="chips scroll-x" id="word-cats"></div>
+    <div class="deck-tools">
+      <span class="muted" id="cat-progress-label"></span>
+      <div class="bar slim"><div class="bar-fill gold" id="cat-progress-bar"></div></div>
+    </div>
+    <div class="deck-wrap" id="deck-area">
+      <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="Flashcard — click to flip">
+        <div class="fc-inner">
+          <div class="fc-face fc-front">
+            <span class="fc-cat" id="fc-cat-front"></span>
+            <span class="fc-ar arabic" id="fc-ar"></span>
+            <span class="fc-tr" id="fc-tr"></span>
+            <button class="icon-btn say-on-card" data-say-slot="front" aria-label="Listen"></button>
+            <span class="fc-hint">click card to flip</span>
+          </div>
+          <div class="fc-face fc-back">
+            <span class="fc-cat" id="fc-cat-back"></span>
+            <span class="fc-en" id="fc-en"></span>
+            <span class="fc-hint">click card to flip back</span>
+          </div>
+        </div>
+      </div>
+      <div class="deck-controls">
+        <button class="btn btn-ghost icon-btn" id="fc-prev" aria-label="Previous word"></button>
+        <button class="btn btn-primary icon-btn" id="fc-flip" aria-label="Flip card"></button>
+        <button class="btn btn-ghost icon-btn" id="fc-next" aria-label="Next word"></button>
+        <button class="btn btn-ghost icon-btn" id="fc-shuffle" aria-label="Shuffle deck"></button>
+        <button class="btn btn-star icon-btn" id="fc-star" aria-label="Mark as learned"></button>
+      </div>
+      <div class="deck-view-toggle">
+        <button class="btn btn-small active" id="btn-deck-view">Cards</button>
+        <button class="btn btn-small" id="btn-list-view">List</button>
+      </div>
+    </div>
+    <div class="words-list hidden" id="words-list"></div>
+  </section>
+
+  <!-- ============ GRAMMAR ============ -->
+  <section class="view" id="view-grammar">
+    <header class="view-head">
+      <h2>Grammar, gently <span class="arabic head-ar">(النَّحْو)</span></h2>
+      <p>Fifteen bite-sized lessons that take you from letters to real sentences.</p>
+    </header>
+    <div id="grammar-list"></div>
+  </section>
+
+  <!-- ============ PHRASES ============ -->
+  <section class="view" id="view-phrases">
+    <header class="view-head">
+      <h2>Phrases & Conversation <span class="arabic head-ar">(المُحادثة)</span></h2>
+      <p>Say each phrase out loud twice before moving on. Your mouth learns too!</p>
+    </header>
+    <div id="phrases-list"></div>
+
+    <h3 class="sub-head">Your first conversation — play it line by line</h3>
+    <div class="dialogue card" id="dialogue"></div>
+    <button class="btn btn-primary" id="play-dialogue">Play conversation</button>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="view" id="view-quiz">
+    <header class="view-head">
+      <h2>Challenge Yourself <span class="arabic head-ar">(اِمْتِحان)</span></h2>
+      <p>Ten questions, instant feedback. Beat your best score!</p>
+    </header>
+
+    <div class="card quiz-setup" id="quiz-setup">
+      <h3>Choose your topic</h3>
+      <div class="chips" id="quiz-topics">
+        <button class="chip active" data-topic="mixed">Mixed</button>
+        <button class="chip" data-topic="letters">Letters</button>
+        <button class="chip" data-topic="vocab">Vocabulary</button>
+        <button class="chip" data-topic="numbers">Numbers</button>
+      </div>
+      <button class="btn btn-primary" id="btn-start-quiz">Start quiz</button>
+    </div>
+
+    <div class="card quiz-play hidden" id="quiz-play">
+      <div class="q-meta">
+        <span id="q-progress"></span>
+        <span id="q-score"></span>
+      </div>
+      <div class="bar slim"><div class="bar-fill accent" id="q-bar"></div></div>
+      <div id="q-question" class="q-question"></div>
+      <div class="q-options" id="q-options"></div>
+      <div id="q-feedback" class="q-feedback" role="status"></div>
+      <button class="btn btn-primary hidden" id="btn-next-q">Next question</button>
+    </div>
+
+    <div class="card quiz-result hidden" id="quiz-result">
+      <div class="score-ring" id="score-ring"><span id="qr-score"></span></div>
+      <p id="qr-msg"></p>
+      <p class="muted" id="qr-best"></p>
+      <div class="row-center">
+        <button class="btn btn-primary" id="btn-again">Play again</button>
+        <button class="btn btn-ghost" id="btn-change-topic">Change topic</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Built for curious minds. Practice daily — even five minutes counts.
+     Progress is saved locally in your browser.</p>
+  <button class="btn btn-small btn-danger" id="reset-progress">Reset my progress</button>
+</footer>
+
+<!-- Letter detail modal -->
+<div class="modal-overlay hidden" id="modal-overlay">
+  <div class="modal card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close icon-btn" id="modal-close" aria-label="Close"></button>
+    <div id="modal-body"></div>
+    <div class="modal-nav">
+      <button class="btn btn-ghost" id="modal-prev">Previous</button>
+      <button class="btn btn-star icon-btn" id="modal-star" aria-label="Toggle learned"></button>
+      <button class="btn btn-ghost" id="modal-next">Next</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="hidden" role="status"></div>
+
+<script src="js/data.js"></script>
+<script src="js/content.js"></script>
+<script src="js/grammar.js"></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
